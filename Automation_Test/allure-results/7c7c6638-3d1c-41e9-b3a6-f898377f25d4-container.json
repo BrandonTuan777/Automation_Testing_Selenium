@@ -1,0 +1,1 @@
+{"uuid":"7c7c6638-3d1c-41e9-b3a6-f898377f25d4","name":"org.example.Test1.Cleanup","children":["da4e43d0-edab-4f55-853e-7fb1806f26a4"],"description":"","befores":[],"afters":[{"name":"Cleanup","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1681287866017,"stop":1681287866017}],"start":1681287866016,"stop":1681287866017}

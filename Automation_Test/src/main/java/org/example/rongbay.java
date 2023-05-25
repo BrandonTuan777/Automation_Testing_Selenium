@@ -1,6 +1,7 @@
 package org.example;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -19,6 +20,14 @@ public class rongbay {
 
     public WebElement getPath(String xpath) {
         return driver.findElement(By.xpath(xpath));
+    }
+
+    public void removeAttribute(WebElement element, String attr) {
+        ((JavascriptExecutor) driver).executeScript("arguments[0].removeAttribute('" + attr + "')", element);
+    }
+
+    public void setAttribute(WebElement element, String attr) {
+        ((JavascriptExecutor) driver).executeScript("arguments[0].setAttribute('" + attr + "','')", element);
     }
 
     @BeforeClass // Open window by chrome driver with base url

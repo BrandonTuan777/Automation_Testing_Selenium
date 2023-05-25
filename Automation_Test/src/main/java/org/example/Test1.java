@@ -13,28 +13,10 @@ import org.testng.annotations.Test;
 public class Test1 {
 
     ChromeDriver chromeDriver;
-    private WebElement input1;
-    private WebElement input11;
-
-    String input = "abc123.126%^&";
-    String expect = "123.126";
-
-    public void removeAtrribute(WebElement element, String attr) {
-        ((JavascriptExecutor) chromeDriver).executeScript("arguments[0].removeAttribute('" + attr + "')", element);
-    }
-
-    public void setAtrribute(WebElement element, String attr) {
-        ((JavascriptExecutor) chromeDriver).executeScript("arguments[0].setAttribute('" + attr + "','')", element);
-    }
-
-
     @BeforeMethod
     public void Setup() {
-
         WebDriverManager.chromedriver().setup();
         chromeDriver = new ChromeDriver(new ChromeOptions().addArguments("--remote-allow-origins=*"));
-
-
     }
 
     @Test

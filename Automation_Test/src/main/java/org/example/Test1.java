@@ -13,97 +13,87 @@ import org.testng.annotations.Test;
 public class Test1 {
 
     ChromeDriver chromeDriver;
+
     @BeforeMethod
     public void Setup() {
         WebDriverManager.chromedriver().setup();
         chromeDriver = new ChromeDriver(new ChromeOptions().addArguments("--remote-allow-origins=*"));
+
+        chromeDriver.get("https://rongbay.com/");
+
     }
 
     @Test
-    public void Run() {
+    public void CreateNewPost() {
         Actions action = new Actions(chromeDriver);
-        chromeDriver.get("https://rongbay.com/");
 
-        WebElement el1 = chromeDriver.findElement(By.xpath("//a[@class='btnAdvertise_dt seo1554191484']"));
-        el1.click();
+        WebElement createPostBtn = chromeDriver.findElement(By.xpath("//a[@class='btnAdvertise_dt seo1554191484']"));
+        createPostBtn .click();
 
-        WebElement el2 = chromeDriver.findElement(By.xpath("//*[@id=\"PostAllForm\"]/div[2]/div/ul/li[2]"));
-        action.moveToElement(el2).perform();
+        WebElement hoverMuaBanNhaDat = chromeDriver.findElement(By.xpath("//*[@id=\"PostAllForm\"]/div[2]/div/ul/li[2]"));
+        action.moveToElement(hoverMuaBanNhaDat).perform();
 
-        WebElement el3 = chromeDriver.findElement(By.xpath("//ul[@class='step_3 group_15']//a[contains(text(),'Nhà riêng')]"));
-        el3.click();
+        WebElement nhaRiengBtn = chromeDriver.findElement(By.xpath("//ul[@class='step_3 group_15']//a[contains(text(),'Nhà riêng')]"));
+        nhaRiengBtn.click();
         sleep(3000);
 
-        WebElement el4 = chromeDriver.findElement(By.id("ad_title"));
-        el4.sendKeys("Nhà của Thi");
+        WebElement titleField = chromeDriver.findElement(By.id("ad_title"));
+        titleField.sendKeys("Nhà của Thi");
 
-        WebElement el5 = chromeDriver.findElement(By.name("data[id_cities]"));
-        el5.click();
+        WebElement citiDropdown = chromeDriver.findElement(By.name("data[id_cities]"));
+        citiDropdown.click();
 
-        WebElement el6 = chromeDriver.findElement(By.xpath("//option[@value='4']"));
-        el6.click();
-        WebElement el67 = chromeDriver.findElement(By.name("data[id_districs]"));
-        el67.click();
-        WebElement el68 = chromeDriver.findElement(By.xpath("//option[@value='99']"));
-        el68.click();
+        WebElement selectCity = chromeDriver.findElement(By.xpath("//option[@value='4']"));
+        selectCity.click();
 
-        WebElement el7 = chromeDriver.findElement(By.id("project_user_post_name"));
-        el7.sendKeys("Nhà 4 tầng của Thi 10 tỷ");
+        WebElement districtDropdown = chromeDriver.findElement(By.name("data[id_districs]"));
+        districtDropdown.click();
 
-        WebElement el8 = chromeDriver.findElement(By.name("data[field_extra][dientich]"));
-        el8.sendKeys("100");
+        WebElement selectDistrict = chromeDriver.findElement(By.xpath("//option[@value='99']"));
+        selectDistrict.click();
 
-        WebElement el9 = chromeDriver.findElement(By.id("price_bds"));
-        el9.sendKeys("10");
+        WebElement postName = chromeDriver.findElement(By.id("project_user_post_name"));
+        postName.sendKeys("Nhà 4 tầng");
 
-        WebElement el10 = chromeDriver.findElement(By.name("data[field_extra][price_tt]"));
-        el10.click();
+        WebElement acreageField = chromeDriver.findElement(By.name("data[field_extra][dientich]"));
+        acreageField.sendKeys("100");
 
-//
+        WebElement priceField = chromeDriver.findElement(By.id("price_bds"));
+        priceField.sendKeys("10");
 
-        WebElement el11=chromeDriver.findElement((By.id("description_ifr")));
-        chromeDriver.switchTo().frame(el11);
+        WebElement unitPrice = chromeDriver.findElement(By.name("data[field_extra][price_tt]"));
+        unitPrice.click();
 
-        WebElement el12 = chromeDriver.findElement(By.id("tinymce"));
-        el12.sendKeys("1111");
+        WebElement descriptionIframe = chromeDriver.findElement((By.id("description_ifr")));
+        chromeDriver.switchTo().frame(descriptionIframe);
+
+        WebElement descriptionField = chromeDriver.findElement(By.id("tinymce"));
+        descriptionField.sendKeys("Đây là nhà có 4 tầng, có 3 phòng ngủ 4 nhà vệ sinh," +
+                " 1 phòng khách, 1 nhà bếp, chỗ để xe rộng rãi, có sân thoáng mát");
 
         chromeDriver.switchTo().defaultContent();
 
+        WebElement selectDirection = chromeDriver.findElement(By.xpath(" //li[@title='Đông']"));
+        selectDirection.click();
 
-        WebElement el13 = chromeDriver.findElement(By.xpath(" //li[@title='Đông']"));
-        el13.click();
+        WebElement houseFront = chromeDriver.findElement(By.xpath("//li[@title=\"Từ 7-10m\"]"));
+        houseFront.click();
 
-        WebElement el14 = chromeDriver.findElement(By.xpath("//li[@title=\"Từ 7-10m\"]"));
-        el14.click();
+        WebElement legalDocuments = chromeDriver.findElement(By.xpath("//li[@title=\"Có sổ đỏ/ hồng\"]"));
+        legalDocuments.click();
 
-        WebElement el15 = chromeDriver.findElement(By.xpath("//li[@title=\"Có sổ đỏ/ hồng\"]"));
-        el15.click();
-        WebElement el16 = chromeDriver.findElement(By.name("data[job_contact_fullname]"));
-        el16.sendKeys("1111");
-        WebElement el17 = chromeDriver.findElement(By.name("data[ad_mobile]"));
-        el17.sendKeys("0888700931");
-        WebElement el18 = chromeDriver.findElement(By.name("data[job_contact_email]"));
-        el18.sendKeys("baconheocon123@gmail.com");
+        WebElement nameFiled = chromeDriver.findElement(By.name("data[job_contact_fullname]"));
+        nameFiled.sendKeys("Nguyễn Văn Phùng");
 
-        WebElement el19 = chromeDriver.findElement(By.id("submit_item_new"));
-        el19.click();
+        WebElement phoneFiled = chromeDriver.findElement(By.name("data[ad_mobile]"));
+        phoneFiled.sendKeys("0888700931");
+
+        WebElement emailField = chromeDriver.findElement(By.name("data[job_contact_email]"));
+        emailField.sendKeys("phung@gmail.com");
+
+        WebElement submitBtn = chromeDriver.findElement(By.id("submit_item_new"));
+        submitBtn.click();
         sleep(2000);
-
-//
-//        // Switching to Alert
-//        Alert alert = chromeDriver.switchTo().alert();
-//
-//        // Capturing alert message.
-//        String alertMessage= chromeDriver.switchTo().alert().getText();
-//
-//        // Displaying alert message
-//        System.out.println(alertMessage);
-//        sleep(5000);
-//
-//        // Accepting alert
-//        alert.accept();
-
-
 
     }
 

@@ -3,7 +3,7 @@
 <suite name="Demo FLow">
     <test name="Create New Post">
         <classes>
-            <class name="MainFlow.CreateNewPost"/>
+            <class name="MainFlow.CreateNewPostOldMethod"/>
         </classes>
     </test>
 </suite>

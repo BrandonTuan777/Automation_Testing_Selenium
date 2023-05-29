@@ -20,7 +20,7 @@ public class ReviewPost {
     }
 
     @Test
-    public void ReviewPost{
+    public void ReviewPost(){
         
     }
 }

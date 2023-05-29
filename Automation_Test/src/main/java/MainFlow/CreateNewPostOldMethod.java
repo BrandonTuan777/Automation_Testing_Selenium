@@ -9,7 +9,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-class CreateNewPostOldMethod {
+public class CreateNewPostOldMethod {
     public static ChromeOptions option = new ChromeOptions()
             .addArguments("--remote-allow-origins=*");
     public static WebDriver chromeDriver = new ChromeDriver(option);

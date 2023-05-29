@@ -1,4 +1,4 @@
-package org.example;
+package MainFlow;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
@@ -9,7 +9,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-class DemoDACNTT1 {
+class CreateNewPost {
     ChromeDriver chromeDriver;
 
     @BeforeMethod

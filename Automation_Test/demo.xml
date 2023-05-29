@@ -3,7 +3,7 @@
 <suite name="Demo FLow">
     <test name="Create New Post">
         <classes>
-            <class name="org.example.DemoDACNTT1"/>
+            <class name="MainFlow.CreateNewPost"/>
         </classes>
     </test>
 </suite>

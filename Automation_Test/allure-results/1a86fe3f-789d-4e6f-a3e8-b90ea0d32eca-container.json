@@ -1,0 +1,1 @@
+{"uuid":"1a86fe3f-789d-4e6f-a3e8-b90ea0d32eca","name":"org.example.DemoDACNTT1.Setup","children":["a3ca5dd5-2554-4b28-be60-19661b1bbe5a"],"description":"","befores":[{"name":"Setup","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1685342090333,"stop":1685342105143}],"afters":[],"start":1685342090332,"stop":1685342105145}

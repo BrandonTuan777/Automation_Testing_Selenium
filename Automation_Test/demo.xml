@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Demo FLow">
-    <test name="Create New Post">
+    <test name="Create New Post Use Old Method">
         <classes>
             <class name="MainFlow.CreateNewPostOldMethod"/>
+        </classes>
+    </test>
+    <test name="Create New Post Use New Method">
+        <classes>
+            <class name="MainFlow.CreateNewPostNewMethod"/>
+        </classes>
+    </test>
+    <test name="Review Post">
+        <classes>
+            <class name="MainFlow.ReviewPost"/>
         </classes>
     </test>
 </suite>

@@ -9,8 +9,6 @@ import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import java.nio.file.WatchEvent;
-
 public class CreateNewPostNewMethod {
     public static ChromeOptions option = new ChromeOptions()
             .addArguments("--remote-allow-origins=*");
@@ -30,8 +28,7 @@ public class CreateNewPostNewMethod {
         WebElement advertiseBtn = chromeDriver.findElement(By.xpath("//a[text()='Mua quảng cáo']"));
         advertiseBtn.click();
 
-        // CLick create new post with new method
-        WebElement createNewPostBtn = chromeDriver.findElement(By.xpath("//p[@class='label tab roboto_medium fa fa-edit ']"));
+        // CLick create new post with new method        WebElement createNewPostBtn = chromeDriver.findElement(By.xpath("//p[@class='label tab roboto_medium fa fa-edit ']"));
         createNewPostBtn.click();
 
         // CLick create new post now button

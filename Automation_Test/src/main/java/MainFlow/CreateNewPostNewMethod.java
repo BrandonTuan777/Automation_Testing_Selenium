@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.interactions.Actions;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -14,29 +14,31 @@ public class CreateNewPostNewMethod {
             .addArguments("--remote-allow-origins=*");
     public static WebDriver chromeDriver = new ChromeDriver(option);
 
-    public static Actions action = new Actions(chromeDriver);
-
-    @BeforeMethod
+    @BeforeClass
     public void Setup() {
         chromeDriver.get("https://rongbay.com/");
     }
 
-    @Test
-    public void CreateNewPost() throws Exception {
-        Thread.sleep(2000);
+    @Test (priority = 0)
+    public void CreateNewPost() {
+        sleep(3000);
         // Click advertise button
         WebElement advertiseBtn = chromeDriver.findElement(By.xpath("//a[text()='Mua quảng cáo']"));
         advertiseBtn.click();
 
-        // CLick create new post with new method        WebElement createNewPostBtn = chromeDriver.findElement(By.xpath("//p[@class='label tab roboto_medium fa fa-edit ']"));
+        // CLick create new post with new method
+        WebElement createNewPostBtn = chromeDriver.findElement(By.xpath("//p[@class='label tab roboto_medium fa fa-edit ']"));
         createNewPostBtn.click();
 
         // CLick create new post now button
         WebElement createNewPostNowBtn = chromeDriver.findElement(By.xpath("//a[text()='ĐĂNG TIN NGAY']"));
         createNewPostNowBtn.click();
 
-        Thread.sleep(2000);
+        sleep(2000);
+    }
 
+    @Test (priority = 1)
+    public void InputPostDescription() {
         chromeDriver.get("https://touch.rongbay.com/?cmd=dangtin");
 
         // Input post description
@@ -87,7 +89,6 @@ public class CreateNewPostNewMethod {
         // Click submit button
         WebElement submitBtn = chromeDriver.findElement(By.xpath("//button[text()='Đăng ngay']"));
         submitBtn.click();
-
     }
 
     private void sleep(int time){

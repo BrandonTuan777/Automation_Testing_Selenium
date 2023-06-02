@@ -3,24 +3,23 @@ package MainFlow;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.StaleElementReferenceException;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import java.util.List;
 
 public class ReviewPost {
-    ChromeDriver chromeDriver;
-    @BeforeMethod
+    public static ChromeOptions option = new ChromeOptions()
+            .addArguments("--remote-allow-origins=*");
+    public static WebDriver chromeDriver = new ChromeDriver(option);
+
+    @BeforeClass
     public void Setup() {
-        WebDriverManager.chromedriver().setup();
-
-        ChromeOptions option = new ChromeOptions().addArguments("--remote-allow-origins=*");
-
-        chromeDriver = new ChromeDriver(option);
-
         chromeDriver.get("https://rongbay.com/");
     }
 
@@ -46,7 +45,9 @@ public class ReviewPost {
                 System.out.println("Stale Element Reference" + e);
             }
         }
-    sleep(5000);
+
+        sleep(5000);
+
         // Click element trong page xe may xe dap
         List <WebElement> choice2= chromeDriver.findElements(By.xpath("//a[@class='rd_view newsTitle float_l']"));
         long countElements2=choice2.size();
@@ -61,8 +62,6 @@ public class ReviewPost {
 
 
     }
-
-
 
     private void sleep(int time){
         try{

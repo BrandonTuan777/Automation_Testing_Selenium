@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -14,12 +15,12 @@ public class CreateNewPostOldMethod {
             .addArguments("--remote-allow-origins=*");
     public static WebDriver chromeDriver = new ChromeDriver(option);
 
-    @BeforeMethod
+    @BeforeClass
     public void Setup() {
         chromeDriver.get("https://rongbay.com/");
     }
 
-    @Test
+    @Test (priority = 0)
     public void CreateNewPost() {
         Actions action = new Actions(chromeDriver);
 
@@ -39,6 +40,10 @@ public class CreateNewPostOldMethod {
         nhaRiengBtn.click();
         sleep(3000);
 
+    }
+
+    @Test (priority = 1)
+    public void InputPostDescription() {
         // Input title field
         WebElement titleField = chromeDriver.findElement(
                 By.id("ad_title"));
@@ -133,7 +138,6 @@ public class CreateNewPostOldMethod {
                 By.id("submit_item_new"));
         submitBtn.click();
         sleep(2000);
-
     }
 
     private void sleep(int time){

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Create Post FLow">
+    <parameter name="browserType" value="chrome"/>
+    <parameter name="appURL" value="https://rongbay.com/"/>
+    <test name="Create New Post Use Old Method">
+        <classes>
+            <class name="rongbay.testcase.CreateNewPostTest">
+                <methods>
+                    <include name="CreatePost"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

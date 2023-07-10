@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Review Post FLow">
+    <parameter name="browserType" value="chrome"/>
+    <parameter name="appURL" value="https://rongbay.com/"/>
+    <test name="Review Post">
+        <classes>
+            <class name="rongbay.testcase.ReviewPostTest">
+                <methods>
+                    <include name="ReviewPost"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

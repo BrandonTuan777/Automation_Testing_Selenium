@@ -5,6 +5,8 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -15,14 +17,20 @@ import java.util.List;
 public class MainPage {
     private final WebDriver driver;
     private final Actions action;
-    private final By CreateBtnEle = By.xpath("//a[@class='btnAdvertise_dt seo1554191484']");
-    private final By MuaBanNhaDatEle = By.xpath("//*[@id=\"PostAllForm\"]/div[2]/div/ul/li[2]");
-    private final By NhaRiengBtnEle = By.xpath("//ul[@class='step_3 group_15']//a[contains(text(),'Nhà riêng')]");
-    private final By DropdownSelectCountry = By.xpath("//span[@class='icon_province']");
-    private final By ListOfCountry = By.xpath("//li[@class='City seo1554192416']//b");
-    private final By ListOfOption = By.xpath("//li[@class='Navi2_wid']//a");
-    private final By ListOfTitle =  By.xpath("//a[@class='rd_view newsTitle float_l']");
-
+    @FindBy(xpath = "//a[@class='btnAdvertise_dt seo1554191484']")
+    private WebElement CreateBtnEle;
+    @FindBy(xpath = "//*[@id=\"PostAllForm\"]/div[2]/div/ul/li[2]")
+    private WebElement MuaBanNhaDatEle;
+    @FindBy(xpath = "//ul[@class='step_3 group_15']//a[contains(text(),'Nhà riêng')]")
+    private WebElement NhaRiengBtnEle;
+    @FindBy(xpath = "//span[@class='icon_province']")
+    private WebElement DropdownSelectCountry;
+    @FindBy(xpath = "//li[@class='City seo1554192416']//b")
+    private List<WebElement> ListOfCountry;
+    @FindBy(xpath = "//li[@class='Navi2_wid']//a")
+    private List<WebElement> ListOfOption;
+    @FindBy(xpath = "//a[@class='rd_view newsTitle float_l']")
+    private List<WebElement> ListOfTitle;
     // Khởi tạo class khi được gọi và truyền driver vào để các thành phần trong class này đọc
     public MainPage(WebDriver driver, Actions action) {
         this.driver = driver;
@@ -42,38 +50,31 @@ public class MainPage {
     }
 
     public void ClickCreateBtn() {
-        WebElement createBtn = driver.findElement(CreateBtnEle);
-        createBtn.click();
+        CreateBtnEle.click();
     }
 
     public void HoverToMuaBanNhaDat() {
-        WebElement tagMuaBanNhaDat = driver.findElement(MuaBanNhaDatEle);
-        action.moveToElement(tagMuaBanNhaDat).perform();
+        action.moveToElement(MuaBanNhaDatEle).perform();
     }
 
     public void ClickNhaRiengBtn() {
-        WebElement nhaRiengBtn = driver.findElement(NhaRiengBtnEle);
-        nhaRiengBtn.click();
+        NhaRiengBtnEle.click();
     }
 
     public void OpenDropdownSelectCountry() {
-        WebElement countryDropdown = driver.findElement(DropdownSelectCountry);
-        countryDropdown.click();
+        DropdownSelectCountry.click();
     }
 
     public void SelectCountry(int num) {
-        List<WebElement> listCountry = driver.findElements(ListOfCountry);
-        listCountry.get(num).click();
+        ListOfCountry.get(num).click();
     }
 
     public void SelectOption(int num) {
-        List<WebElement> listOption = driver.findElements(ListOfOption);
-        listOption.get(num).click();
+        ListOfOption.get(num).click();
     }
 
     public void SelectTitle(int num) {
-        List<WebElement> listTitle = driver.findElements(ListOfTitle);
-        listTitle.get(num).click();
+        ListOfTitle.get(num).click();
     }
 
     public void waitForPageLoaded() {
